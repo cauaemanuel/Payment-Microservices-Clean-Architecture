@@ -18,11 +18,14 @@ public class ProcessTransactionUseCase {
         this.walletEventPublisher = walletEventPublisher;
     }
 
-
     public void processTransaction(TransactionMessageDto dto){
 
         var sender = walletRepository.findByUserEmail(dto.getSenderUserId());
         var receiver = walletRepository.findByUserEmail(dto.getRecipientUserId());
+
+        if (dto.getAmount() <= 0) {
+            throw new IllegalArgumentException("Transaction amount must be greater than zero");
+        }
 
         if (sender.isEmpty() || receiver.isEmpty()) {
             throw new IllegalArgumentException("Sender or receiver wallet not found");

@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.util.Objects;
+
 @Component
 public class CreateWalletUseCase {
 
@@ -22,7 +24,7 @@ public class CreateWalletUseCase {
     @Transactional
     public void createWallet(String token) {
 
-        var userEmail = userClient.emailByToken(token);
+        var userEmail = userClient.emailByToken(Objects.requireNonNull(token));
 
         if (userEmail == null || userEmail.isEmpty()) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "User email cannot be null or empty");
