@@ -1,8 +1,8 @@
-package com.wallet_service.infrastructure.service;
-import com.wallet_service.domain.client.UserClient;
+package com.wallet_service.domain.service;
+import com.wallet_service.application.ports.input.ManageWalletPort;
+import com.wallet_service.application.ports.output.UserClient;
 import com.wallet_service.domain.entity.Wallet;
-import com.wallet_service.domain.repository.WalletRepository;
-import com.wallet_service.domain.service.WalletService;
+import com.wallet_service.application.ports.output.WalletRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -13,12 +13,12 @@ import org.springframework.web.server.ResponseStatusException;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class WalletServiceImple implements WalletService {
+public class ManageWalletService implements ManageWalletPort {
 
     private final WalletRepository walletRepository;
     private final UserClient userClient;
 
-    public Double getGetWalletBalance(String token) {
+    public Double getWalletBalance(String token) {
         var userEmail = getEmail(token);
         var wallet = findWalletByUserEmail(userEmail);
         return wallet.getBalance();

@@ -1,4 +1,4 @@
-package com.wallet_service.infrastructure.client;
+package com.wallet_service.adapters.output.client;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

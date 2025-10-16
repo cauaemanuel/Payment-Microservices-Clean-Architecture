@@ -1,9 +1,9 @@
-package com.wallet_service.application.interactors;
+package com.wallet_service.domain.service;
 
 import com.wallet_service.application.dto.TransactionMessageDto;
 import com.wallet_service.domain.entity.Wallet;
-import com.wallet_service.domain.messaging.WalletEventPublisher;
-import com.wallet_service.domain.repository.WalletRepository;
+import com.wallet_service.application.ports.output.WalletEventPublisher;
+import com.wallet_service.application.ports.output.WalletRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

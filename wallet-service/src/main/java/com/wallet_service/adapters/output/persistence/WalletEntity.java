@@ -1,4 +1,4 @@
-package com.wallet_service.infrastructure.repository;
+package com.wallet_service.adapters.output.persistence;
 
 import jakarta.persistence.*;
 import lombok.Data;

@@ -1,7 +1,7 @@
-package com.wallet_service.infrastructure.repository;
+package com.wallet_service.adapters.output.persistence;
 
 import com.wallet_service.domain.entity.Wallet;
-import com.wallet_service.domain.repository.WalletRepository;
+import com.wallet_service.application.ports.output.WalletRepository;
 
 import java.util.Optional;
 

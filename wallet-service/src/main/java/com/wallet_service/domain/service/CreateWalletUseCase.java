@@ -1,7 +1,8 @@
-package com.wallet_service.application.interactors;
+package com.wallet_service.domain.service;
 
-import com.wallet_service.domain.client.UserClient;
-import com.wallet_service.domain.repository.WalletRepository;
+import com.wallet_service.application.ports.input.CreateWalletPort;
+import com.wallet_service.application.ports.output.UserClient;
+import com.wallet_service.application.ports.output.WalletRepository;
 import com.wallet_service.domain.entity.Wallet;
 import jakarta.transaction.Transactional;
 import org.springframework.http.HttpStatus;
@@ -11,7 +12,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Objects;
 
 @Component
-public class CreateWalletUseCase {
+public class CreateWalletUseCase implements CreateWalletPort {
 
     private WalletRepository walletRepository;
     private UserClient userClient;

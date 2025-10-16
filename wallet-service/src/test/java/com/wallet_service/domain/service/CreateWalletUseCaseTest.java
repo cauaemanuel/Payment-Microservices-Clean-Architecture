@@ -1,7 +1,7 @@
-package com.wallet_service.application.interactors;
+package com.wallet_service.domain.service;
 
-import com.wallet_service.domain.client.UserClient;
-import com.wallet_service.domain.repository.WalletRepository;
+import com.wallet_service.application.ports.output.UserClient;
+import com.wallet_service.application.ports.output.WalletRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

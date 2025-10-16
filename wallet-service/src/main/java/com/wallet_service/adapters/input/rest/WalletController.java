@@ -1,7 +1,7 @@
-package com.wallet_service.infrastructure.controller;
+package com.wallet_service.adapters.input.rest;
 
-import com.wallet_service.application.interactors.CreateWalletUseCase;
-import com.wallet_service.domain.service.WalletService;
+import com.wallet_service.application.ports.input.CreateWalletPort;
+import com.wallet_service.application.ports.input.ManageWalletPort;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,26 +11,26 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class WalletController {
 
-    private final CreateWalletUseCase createWalletUseCase;
-    private final WalletService walletService;
+    private final CreateWalletPort createWalletPort;
+    private final ManageWalletPort manageWalletPort;
 
-    public WalletController(CreateWalletUseCase createWalletUseCase, WalletService walletService) {
-        this.createWalletUseCase = createWalletUseCase;
-        this.walletService = walletService;
+    public WalletController(CreateWalletPort createWalletPort, ManageWalletPort manageWalletPort) {
+        this.createWalletPort = createWalletPort;
+        this.manageWalletPort = manageWalletPort;
     }
 
     @PostMapping("/create")
     public ResponseEntity createWallet(@RequestHeader("Authorization") String authorization) {
         String token = extractToken(authorization);
         log.info("Creating wallet for token: {}", token);
-        createWalletUseCase.createWallet(token);
+        createWalletPort.createWallet(token);
         return ResponseEntity.ok("Wallet created successfully");
     }
 
     @GetMapping("/balance")
     public ResponseEntity<Double> getWalletBalance(@RequestHeader("Authorization") String authorization) {
         String token = extractToken(authorization);
-        Double balance = walletService.getGetWalletBalance(token);
+        Double balance = manageWalletPort.getWalletBalance(token);
         return ResponseEntity.ok(balance);
     }
 
@@ -39,7 +39,7 @@ public class WalletController {
             @RequestHeader("Authorization") String authorization,
             @RequestParam Double newBalance) {
         String token = extractToken(authorization);
-        walletService.updateWalletBalance(token, newBalance);
+        manageWalletPort.updateWalletBalance(token, newBalance);
         return ResponseEntity.ok("Wallet balance updated successfully");
     }
 
@@ -47,13 +47,13 @@ public class WalletController {
     public ResponseEntity verifyAmount(
             @RequestParam String email,
             @RequestParam Double amount) {
-        boolean isValid = walletService.verifyAmount(email, amount);
+        boolean isValid = manageWalletPort.verifyAmount(email, amount);
         return ResponseEntity.ok(isValid);
     }
 
     @GetMapping("/exists")
     public ResponseEntity<Boolean> exists(@RequestParam String email) {
-        boolean exists = walletService.isWalletExists(email);
+        boolean exists = manageWalletPort.isWalletExists(email);
         return ResponseEntity.ok(exists);
     }
 

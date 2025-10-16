@@ -1,4 +1,4 @@
-package com.wallet_service.infrastructure.client;
+package com.wallet_service.adapters.output.client;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;

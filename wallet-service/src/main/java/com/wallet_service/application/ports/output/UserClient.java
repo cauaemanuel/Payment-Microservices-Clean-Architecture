@@ -1,4 +1,4 @@
-package com.wallet_service.domain.client;
+package com.wallet_service.application.ports.output;
 
 public interface UserClient {
 

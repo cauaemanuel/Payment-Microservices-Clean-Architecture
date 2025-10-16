@@ -1,4 +1,4 @@
-package com.wallet_service.domain.repository;
+package com.wallet_service.application.ports.output;
 
 import com.wallet_service.domain.entity.Wallet;
 

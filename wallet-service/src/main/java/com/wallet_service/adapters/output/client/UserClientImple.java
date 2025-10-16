@@ -1,6 +1,6 @@
-package com.wallet_service.infrastructure.client;
+package com.wallet_service.adapters.output.client;
 
-import com.wallet_service.domain.client.UserClient;
+import com.wallet_service.application.ports.output.UserClient;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j

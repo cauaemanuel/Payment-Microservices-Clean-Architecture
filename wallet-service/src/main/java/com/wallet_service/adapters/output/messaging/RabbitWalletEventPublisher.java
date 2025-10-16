@@ -1,7 +1,7 @@
-package com.wallet_service.infrastructure.messaging;
+package com.wallet_service.adapters.output.messaging;
 
 import com.wallet_service.application.dto.TransactionMessageDto;
-import com.wallet_service.domain.messaging.WalletEventPublisher;
+import com.wallet_service.application.ports.output.WalletEventPublisher;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;

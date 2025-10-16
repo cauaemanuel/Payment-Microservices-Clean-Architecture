@@ -1,4 +1,4 @@
-package com.wallet_service.infrastructure.repository;
+package com.wallet_service.adapters.output.persistence;
 
 import com.wallet_service.domain.entity.Wallet;
 import org.springframework.data.jpa.repository.JpaRepository;
