@@ -1,16 +1,16 @@
 package com.user_service.infrastructure.config;
 
-import com.user_service.domain.interactors.GetEmailByTokenUseCase;
-import com.user_service.application.interactorsImple.GetEmailByTokenUseCaseImple;
-import com.user_service.infrastructure.persistence.UserRepositoryImple;
-import com.user_service.domain.interactors.LoginUserUseCase;
-import com.user_service.domain.interactors.RegisterUserUseCase;
-import com.user_service.domain.interactors.UserExistsUseCase;
-import com.user_service.application.interactorsImple.LoginUserUseCaseImple;
-import com.user_service.application.interactorsImple.RegisterUserUseCaseImple;
-import com.user_service.application.interactorsImple.UserExistsUseCaseImple;
-import com.user_service.domain.repository.UserRepository;
-import com.user_service.infrastructure.persistence.SpringDataUserRepository;
+import com.user_service.application.ports.input.GetEmailByTokenUseCase;
+import com.user_service.domain.service.GetEmailByTokenUseCaseImple;
+import com.user_service.adapters.output.persistence.UserRepositoryImple;
+import com.user_service.application.ports.input.LoginUserUseCase;
+import com.user_service.application.ports.input.RegisterUserUseCase;
+import com.user_service.application.ports.input.UserExistsUseCase;
+import com.user_service.domain.service.LoginUserUseCaseImple;
+import com.user_service.domain.service.RegisterUserUseCaseImple;
+import com.user_service.domain.service.UserExistsUseCaseImple;
+import com.user_service.application.ports.output.UserRepository;
+import com.user_service.adapters.output.persistence.SpringDataUserRepository;
 import com.user_service.infrastructure.security.SecurityConfig;
 import com.user_service.infrastructure.security.TokenService;
 import org.springframework.context.annotation.Bean;

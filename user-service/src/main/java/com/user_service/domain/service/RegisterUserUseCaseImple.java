@@ -1,9 +1,9 @@
-package com.user_service.application.interactorsImple;
+package com.user_service.domain.service;
 
 import com.user_service.domain.entity.User;
 import com.user_service.domain.entity.UserRole;
-import com.user_service.domain.repository.UserRepository;
-import com.user_service.domain.interactors.RegisterUserUseCase;
+import com.user_service.application.ports.output.UserRepository;
+import com.user_service.application.ports.input.RegisterUserUseCase;
 import com.user_service.application.dto.CreateUserDTO;
 import com.user_service.infrastructure.security.SecurityConfig;
 import org.springframework.http.HttpStatus;

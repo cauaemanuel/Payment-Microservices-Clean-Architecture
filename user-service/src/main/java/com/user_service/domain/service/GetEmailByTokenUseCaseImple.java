@@ -1,6 +1,6 @@
-package com.user_service.application.interactorsImple;
+package com.user_service.domain.service;
 
-import com.user_service.domain.interactors.GetEmailByTokenUseCase;
+import com.user_service.application.ports.input.GetEmailByTokenUseCase;
 import com.user_service.infrastructure.security.TokenService;
 
 public class GetEmailByTokenUseCaseImple implements GetEmailByTokenUseCase {

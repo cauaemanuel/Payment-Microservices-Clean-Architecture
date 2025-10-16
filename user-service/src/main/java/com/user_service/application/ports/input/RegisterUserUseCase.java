@@ -1,4 +1,4 @@
-package com.user_service.domain.interactors;
+package com.user_service.application.ports.input;
 
 import com.user_service.application.dto.CreateUserDTO;
 

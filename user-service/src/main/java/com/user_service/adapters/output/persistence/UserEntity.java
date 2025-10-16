@@ -1,4 +1,4 @@
-package com.user_service.infrastructure.persistence;
+package com.user_service.adapters.output.persistence;
 
 import com.user_service.domain.entity.UserRole;
 import jakarta.persistence.*;

@@ -1,7 +1,7 @@
-package com.user_service.application.interactorsImple;
+package com.user_service.domain.service;
 
-import com.user_service.domain.repository.UserRepository;
-import com.user_service.domain.interactors.UserExistsUseCase;
+import com.user_service.application.ports.output.UserRepository;
+import com.user_service.application.ports.input.UserExistsUseCase;
 
 public class UserExistsUseCaseImple implements UserExistsUseCase {
 

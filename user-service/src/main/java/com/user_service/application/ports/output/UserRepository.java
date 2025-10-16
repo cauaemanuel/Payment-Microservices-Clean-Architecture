@@ -1,4 +1,4 @@
-package com.user_service.domain.repository;
+package com.user_service.application.ports.output;
 
 import com.user_service.domain.entity.User;
 

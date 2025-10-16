@@ -1,4 +1,4 @@
-package com.user_service.infrastructure.persistence;
+package com.user_service.adapters.output.persistence;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -1,9 +1,9 @@
-package com.user_service.application.interactorsImple;
+package com.user_service.domain.service;
 
-import com.user_service.domain.interactors.LoginUserUseCase;
+import com.user_service.application.ports.input.LoginUserUseCase;
 import com.user_service.application.dto.LoginUserDto;
 import com.user_service.application.dto.RecoveryJwtTokenDto;
-import com.user_service.infrastructure.persistence.UserEntity;
+import com.user_service.adapters.output.persistence.UserEntity;
 import com.user_service.infrastructure.security.TokenService;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

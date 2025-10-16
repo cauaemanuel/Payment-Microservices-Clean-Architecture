@@ -1,7 +1,7 @@
-package com.user_service.infrastructure.persistence;
+package com.user_service.adapters.output.persistence;
 
 import com.user_service.domain.entity.User;
-import com.user_service.domain.repository.UserRepository;
+import com.user_service.application.ports.output.UserRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.Optional;

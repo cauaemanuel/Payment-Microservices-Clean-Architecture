@@ -1,7 +1,7 @@
 package com.user_service.infrastructure.security;
 
-import com.user_service.infrastructure.persistence.SpringDataUserRepository;
-import com.user_service.infrastructure.persistence.UserEntity;
+import com.user_service.adapters.output.persistence.SpringDataUserRepository;
+import com.user_service.adapters.output.persistence.UserEntity;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

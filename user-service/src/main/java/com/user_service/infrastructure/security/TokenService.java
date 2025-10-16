@@ -5,7 +5,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.user_service.domain.entity.User;
-import com.user_service.infrastructure.persistence.UserEntity;
+import com.user_service.adapters.output.persistence.UserEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;

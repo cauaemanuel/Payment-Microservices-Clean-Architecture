@@ -1,9 +1,9 @@
-package com.user_service.infrastructure.controller;
+package com.user_service.adapters.input.rest;
 
-import com.user_service.domain.interactors.GetEmailByTokenUseCase;
-import com.user_service.domain.interactors.LoginUserUseCase;
-import com.user_service.domain.interactors.RegisterUserUseCase;
-import com.user_service.domain.interactors.UserExistsUseCase;
+import com.user_service.application.ports.input.GetEmailByTokenUseCase;
+import com.user_service.application.ports.input.LoginUserUseCase;
+import com.user_service.application.ports.input.RegisterUserUseCase;
+import com.user_service.application.ports.input.UserExistsUseCase;
 import com.user_service.application.dto.CreateUserDTO;
 import com.user_service.application.dto.LoginUserDto;
 import com.user_service.application.dto.RecoveryJwtTokenDto;
