@@ -2,7 +2,7 @@ package com.payment_api_service.infrastructure.messaging;
 
 import com.payment_api_service.application.dto.TransactionMessageDto;
 import com.payment_api_service.domain.entity.Transaction;
-import com.payment_api_service.domain.messaging.PaymentEventPublisher;
+import com.payment_api_service.application.ports.output.PaymentEventPublisher;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

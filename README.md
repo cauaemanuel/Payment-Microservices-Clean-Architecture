@@ -1,16 +1,16 @@
 
 
-# Payment Microservices Clean Architecture
+# Payment Microservices - Arquitetura Hexagonal
 
-Este repositório apresenta um projeto completo de **microserviços** para uma aplicação de transferência de dinheiro, que inclui um **API Gateway** para centralizar autenticação e roteamento. Desenvolvido com foco em Clean Architecture, comunicação assíncrona via RabbitMQ e service discovery com Eureka Server, este sistema é um exemplo robusto e escalável para soluções financeiras distribuídas.
+Este repositório apresenta um projeto completo de **microserviços** para uma aplicação de transferência de dinheiro, que inclui um **API Gateway** para centralizar autenticação e roteamento. Desenvolvido com foco em **Arquitetura Hexagonal (Ports and Adapters)**, comunicação assíncrona via RabbitMQ e service discovery com Eureka Server, este sistema é um exemplo robusto e escalável para soluções financeiras distribuídas.
 
 ---
 
 ## 🚀 Visão Geral
 
-* **Arquitetura:** Microserviços independentes com comunicação REST e RabbitMQ, descoberta dinâmica de serviços via Eureka e autenticação baseada em JWT.
+* **Arquitetura:** Microserviços independentes seguindo **Arquitetura Hexagonal** com comunicação REST e RabbitMQ, descoberta dinâmica de serviços via Eureka e autenticação baseada em JWT.
 * **Objetivo:** Criar um sistema financeiro distribuído que segue as melhores práticas do mercado, com alta modularidade, escalabilidade e facilidade de manutenção.
-* **Tecnologias:** Java (Spring Boot), RabbitMQ, Eureka, Docker, JWT, Swagger.
+* **Tecnologias:** Java 17 (Spring Boot), RabbitMQ, Eureka, Docker, JWT, Swagger.
 
 ---
 
@@ -27,11 +27,54 @@ Este repositório apresenta um projeto completo de **microserviços** para uma a
 
 ## ⚡ Foco do Projeto
 
-* Arquitetura de **microserviços desacoplados** para escalabilidade.
+* Arquitetura de **microserviços desacoplados** seguindo **Arquitetura Hexagonal** para escalabilidade e testabilidade.
 * Comunicação assíncrona com RabbitMQ para maior resiliência.
-* Clean Architecture para clareza e separação de responsabilidades.
+* **Hexagonal Architecture (Ports and Adapters)** para isolamento do domínio e independência de frameworks.
 * Service discovery dinâmico com Eureka Server.
 * API Gateway para autenticação centralizada e roteamento inteligente.
+
+---
+
+## 🎯 Arquitetura Hexagonal
+
+Todos os microserviços seguem os princípios da **Arquitetura Hexagonal**:
+
+### Estrutura dos Microserviços
+
+```
+service/
+├── domain/
+│   ├── entity/          # Entidades de domínio (regras de negócio)
+│   └── service/         # Implementações dos use cases
+├── application/
+│   ├── dto/             # Data Transfer Objects
+│   └── ports/
+│       ├── input/       # Portas de entrada (interfaces dos use cases)
+│       └── output/      # Portas de saída (interfaces de repositórios, clientes, etc)
+├── adapters/
+│   ├── input/
+│   │   └── rest/        # Adaptadores REST (Controllers)
+│   └── output/
+│       ├── persistence/ # Adaptadores de persistência (JPA)
+│       ├── messaging/   # Adaptadores de mensageria (RabbitMQ)
+│       └── client/      # Adaptadores de clientes HTTP (Feign)
+└── infrastructure/      # Configurações, segurança, beans
+```
+
+### Princípios Aplicados
+
+1. **Separação de Responsabilidades**: O domínio está isolado de detalhes de infraestrutura
+2. **Portas (Ports)**: Interfaces que definem os contratos de entrada e saída
+3. **Adaptadores (Adapters)**: Implementações que conectam a aplicação com o mundo externo
+4. **Inversão de Dependência**: O domínio não depende de frameworks ou bibliotecas externas
+5. **Testabilidade**: Os use cases podem ser testados independentemente dos adapters
+
+### Benefícios
+
+- ✅ **Testabilidade**: Fácil criação de testes unitários e de integração
+- ✅ **Manutenibilidade**: Mudanças em frameworks não afetam o domínio
+- ✅ **Escalabilidade**: Fácil adição de novos adapters
+- ✅ **Independência**: O domínio não conhece detalhes de implementação
 
 ---
 
@@ -65,7 +108,7 @@ Acesse a documentação completa da API aqui:
 ### Pré-requisitos
 
 * Docker e Docker Compose instalados
-* Java 21+
+* Java 17+
 
 ### Passos
 

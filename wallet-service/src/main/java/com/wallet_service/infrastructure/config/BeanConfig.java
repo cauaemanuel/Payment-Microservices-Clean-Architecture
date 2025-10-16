@@ -1,15 +1,13 @@
 package com.wallet_service.infrastructure.config;
 
-import com.wallet_service.domain.client.UserClient;
-import com.wallet_service.domain.messaging.WalletEventPublisher;
-import com.wallet_service.domain.repository.WalletRepository;
-import com.wallet_service.domain.service.WalletService;
-import com.wallet_service.infrastructure.client.SpringUserClient;
-import com.wallet_service.infrastructure.client.UserClientImple;
-import com.wallet_service.infrastructure.messaging.RabbitWalletEventPublisher;
-import com.wallet_service.infrastructure.repository.SpringJpaWalletRepository;
-import com.wallet_service.infrastructure.repository.WalletRepositoryImple;
-import com.wallet_service.infrastructure.service.WalletServiceImple;
+import com.wallet_service.application.ports.output.UserClient;
+import com.wallet_service.application.ports.output.WalletEventPublisher;
+import com.wallet_service.application.ports.output.WalletRepository;
+import com.wallet_service.adapters.output.client.SpringUserClient;
+import com.wallet_service.adapters.output.client.UserClientImple;
+import com.wallet_service.adapters.output.messaging.RabbitWalletEventPublisher;
+import com.wallet_service.adapters.output.persistence.SpringJpaWalletRepository;
+import com.wallet_service.adapters.output.persistence.WalletRepositoryImple;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,11 +23,6 @@ public class BeanConfig {
     @Bean
     public WalletRepository walletRepository(SpringJpaWalletRepository springJpaWalletRepository){
         return new WalletRepositoryImple(springJpaWalletRepository);
-    }
-
-    @Bean
-    public WalletService walletService(WalletRepository walletRepository, UserClient springUserClient) {
-        return new WalletServiceImple(walletRepository, springUserClient);
     }
 
     @Bean
