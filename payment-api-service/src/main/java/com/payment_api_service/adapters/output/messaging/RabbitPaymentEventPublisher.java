@@ -1,4 +1,4 @@
-package com.payment_api_service.infrastructure.messaging;
+package com.payment_api_service.adapters.output.messaging;
 
 import com.payment_api_service.application.dto.TransactionMessageDto;
 import com.payment_api_service.domain.entity.Transaction;

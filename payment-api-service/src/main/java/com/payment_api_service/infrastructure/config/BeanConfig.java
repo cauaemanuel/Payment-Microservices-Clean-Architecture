@@ -1,15 +1,15 @@
 package com.payment_api_service.infrastructure.config;
 
-import com.payment_api_service.domain.client.WalletClient;
-import com.payment_api_service.domain.messaging.PaymentEventPublisher;
-import com.payment_api_service.domain.repository.TransactionRepository;
-import com.payment_api_service.infrastructure.client.SpringUserClient;
-import com.payment_api_service.infrastructure.client.SpringWalletClient;
-import com.payment_api_service.infrastructure.client.UserClientImple;
-import com.payment_api_service.infrastructure.client.WalletClientImple;
-import com.payment_api_service.infrastructure.messaging.RabbitPaymentEventPublisher;
-import com.payment_api_service.infrastructure.persistence.SpringDataTransactionRepository;
-import com.payment_api_service.infrastructure.persistence.TransactionRepositoryImple;
+import com.payment_api_service.application.ports.output.WalletClient;
+import com.payment_api_service.application.ports.output.PaymentEventPublisher;
+import com.payment_api_service.application.ports.output.TransactionRepository;
+import com.payment_api_service.adapters.output.client.SpringUserClient;
+import com.payment_api_service.adapters.output.client.SpringWalletClient;
+import com.payment_api_service.adapters.output.client.UserClientImple;
+import com.payment_api_service.adapters.output.client.WalletClientImple;
+import com.payment_api_service.adapters.output.messaging.RabbitPaymentEventPublisher;
+import com.payment_api_service.adapters.output.persistence.SpringDataTransactionRepository;
+import com.payment_api_service.adapters.output.persistence.TransactionRepositoryImple;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -33,7 +33,7 @@ public class BeanConfig {
     }
 
     @Bean
-    public com.payment_api_service.domain.client.UserClient userClient(SpringUserClient springUserClient) {
+    public com.payment_api_service.application.ports.output.UserClient userClient(SpringUserClient springUserClient) {
         return new UserClientImple(springUserClient);
     }
 
